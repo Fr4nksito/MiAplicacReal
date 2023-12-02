@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "124846250358",
+    "project_id": "galeriadaltonic",
+    "storage_bucket": "galeriadaltonic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124846250358:android:331b2746d46bf880658257",
+        "android_client_info": {
+          "package_name": "com.example.miaplicacion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIa8i9CQfgejMLz--66alacs8g5uBKPkI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
