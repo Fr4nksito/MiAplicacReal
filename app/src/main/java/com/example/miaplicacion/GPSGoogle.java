@@ -24,11 +24,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class GPSGoogle extends FragmentActivity implements OnMapReadyCallback {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 123;
 
-    private GoogleMap mMap;
+    GoogleMap mMap;
 
-    private FusedLocationProviderClient fusedLocationClient;
-    private LocationRequest locationRequest;
-    private LocationCallback locationCallback;
+     FusedLocationProviderClient fusedLocationClient;
+    LocationRequest locationRequest;
+     LocationCallback locationCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +50,8 @@ public class GPSGoogle extends FragmentActivity implements OnMapReadyCallback {
 
         // Configuración de la solicitud de ubicación
         locationRequest = new LocationRequest();
-        locationRequest.setInterval(10000); // Intervalo de actualización en milisegundos
-        locationRequest.setFastestInterval(5000); // Intervalo más rápido en milisegundos
+        locationRequest.setInterval(15000); // Intervalo de actualización en milisegundos
+        locationRequest.setFastestInterval(15000); // Intervalo más rápido en milisegundos
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         // Configuración del oyente de ubicación
@@ -80,8 +80,8 @@ public class GPSGoogle extends FragmentActivity implements OnMapReadyCallback {
 
         // Configuración de la solicitud de ubicación
         locationRequest = new LocationRequest();
-        locationRequest.setInterval(10000); // Intervalo de actualización en milisegundos
-        locationRequest.setFastestInterval(5000); // Intervalo más rápido en milisegundos
+        locationRequest.setInterval(15000); // Intervalo de actualización en milisegundos
+        locationRequest.setFastestInterval(15000); // Intervalo más rápido en milisegundos
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         // Configuración del oyente de ubicación

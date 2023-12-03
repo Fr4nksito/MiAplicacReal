@@ -4,56 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEF5E"
+    android:background="@drawable/fondo_degradado"
     tools:context=".MainActivity">
 
+    <!-- Botón Cámara -->
     <ImageButton
         android:id="@+id/btnCamara"
-
-        android:layout_width="178dp"
-        android:layout_height="175dp"
-        android:background="#0000BCD4"
-        android:scaleType="center"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/rounded_button"
+        android:elevation="4dp"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/chiquito_bien_camara"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnGPS"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311" />
+        app:layout_constraintVertical_bias="0.3" />
+
+    <!-- Botón GPS -->
+    <ImageButton
+        android:id="@+id/btnGPS"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/rounded_button"
+        android:elevation="4dp"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/button_gps"
+        app:layout_constraintBottom_toTopOf="@+id/btnHistorial"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCamara"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <!-- Botón Historial -->
+    <ImageButton
+        android:id="@+id/btnHistorial"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/rounded_button"
+        android:elevation="4dp"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/chiquitohistorial"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGPS"
+        app:layout_constraintVertical_bias="0.3" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Daltonic"
-        android:textAllCaps="true"
-        android:textColor="#000000"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        android:typeface="serif"
+        android:text="Detecta tu color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.128"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        />
 
-    <Button
-        android:id="@+id/btnGPS"
+    <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="MAPA"
+        android:text="GPS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
+        app:layout_constraintVertical_bias="0.419"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        />
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historial de tus colores"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.715"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="82dp"
+        android:layout_height="85dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/icono_chiquito" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

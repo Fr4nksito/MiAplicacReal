@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,12 +20,14 @@ import androidx.core.content.ContextCompat;
 import androidx.palette.graphics.Palette;
 
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.io.IOException;
 
 public class PantallaCAMARA extends AppCompatActivity {
-    ImageView imageView;
+Button selectImageButton;
     TextView colorTextView;
-    ImageButton selectImageButton;
+
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final int STORAGE_PERMISSION_CODE = 2;
     @Override
@@ -33,7 +36,7 @@ public class PantallaCAMARA extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla_camara);
 
         colorTextView = findViewById(R.id.colorTextView);
-        Button selectImageButton = findViewById(R.id.selectImageButton);
+      selectImageButton = findViewById(R.id.selectImageButton);
 
         // Solicitar permiso de almacenamiento si aún no se ha otorgado
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -68,9 +71,12 @@ public class PantallaCAMARA extends AppCompatActivity {
                         // Convertir RGB a HEX
                         String hexColor = ColorNameMapper.rgbToHex(color);
 
-                        // Obtener el nombre del color
-                        String colorName = ColorNameMapper.getColorNameFromHex(hexColor);
-                        colorTextView.setText(colorName);
+                        // Obtener el nombre aproximado del color
+                        String closestColorName = ColorNameMapper.getClosestColorName(color);
+                        colorTextView.setText(closestColorName + " (" + hexColor + ")");
+
+                        // Guardar en Firebase
+                        saveColorToFirebase(closestColorName, hexColor);
                     }
                 });
             } catch (IOException e) {
@@ -90,6 +96,13 @@ public class PantallaCAMARA extends AppCompatActivity {
                 // Permiso denegado, puedes mostrar un mensaje o tomar medidas adecuadas
             }
         }
+    }
+    private void saveColorToFirebase(String colorName, String hexValue) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        ColorHistoryItem item = new ColorHistoryItem(colorName, hexValue, System.currentTimeMillis());
+        db.collection("colorHistory").add(item)
+                .addOnSuccessListener(documentReference -> Log.d("Firebase", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                .addOnFailureListener(e -> Log.w("Firebase", "Error adding document", e));
     }
 
 }

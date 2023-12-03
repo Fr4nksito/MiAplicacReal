@@ -47,4 +47,6 @@
     <string name="todo">TODO</string>
     <string name="button">Button</string>
     <string name="detectar_color">DETECTAR COLOR</string>
+    <string name="mapa">MAPA</string>
+    <string name="daltonic">Daltonic</string>
 </resources>
